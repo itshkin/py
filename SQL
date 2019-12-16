@@ -1,0 +1,81 @@
+/* Создание временных таблиц*/
+CREATE TABLE #Table1
+(
+     
+	 [contractId]			 uniqueidentifier NOT NULL
+,    [calculationDate]       DATETIME NOT NULL
+,    [productId]            NVARCHAR(128) NOT NULL
+,	 [Isprecalculate]       NVARCHAR(128)
+Primary key (contractId)
+)
+insert into #Table1 values  ('8DB8E9FF-86D0-480F-B0D9-258E69A4FD11','2019-09-02', 301, 1)
+insert into #Table1 values  ('F4E30B62-7A80-42BC-BE2B-26CFC23BED65','2019-08-01', 307, 1)
+insert into #Table1 values  ('E47CB5E2-F5B3-4036-9FA4-258EB8F176AB','2019-07-03', 316, 0)
+insert into #Table1 values  ('6793C514-C8AC-42EC-8DD3-258EEC7436E2','2019-07-05', 302, 1)
+insert into #Table1 values  ('F534A17D-2C98-42B6-A032-258F6841B661','2019-08-04', 303, 0)
+
+select * from #Table1
+
+
+
+CREATE TABLE #Table2
+(
+     [id]					NVARCHAR not null
+,	 [contractId]			 uniqueidentifier NOT NULL
+,    [printdate]            DATETIME NOT NULL
+,    [IsDraft]            NVARCHAR(128) NOT NULL
+Primary key (contractId)
+)
+
+insert into #Table2 values  (1,'8DB8E9FF-86D0-480F-B0D9-258E69A4FD11','2019-09-02',  1)
+insert into #Table2 values  (2,'F4E30B62-7A80-42BC-BE2B-26CFC23BED65','2019-08-01',  1)
+insert into #Table2 values  (3,'E47CB5E2-F5B3-4036-9FA4-258EB8F176AB','2019-07-03',  0)
+insert into #Table2 values  (4,'6793C514-C8AC-42EC-8DD3-258EEC7436E2','2019-07-05',  1)
+insert into #Table2 values  (5,'F534A17D-2C98-42B6-A032-258F6841B661','2019-08-04',  0)
+
+select * from #Table2
+
+CREATE TABLE #Table3
+(
+	[productid]  INT not null,
+	[ProductName] NVARCHAR(255) not null,
+	[DateStart]  DATETIME not null,
+	[DateEnd]    DATETIME not null
+Primary key (productid)
+) 
+
+insert into #Table3 values  (301,'Бизнес-Лизинг','2019-09-02',  '2020-09-02')
+insert into #Table3 values  (307,'АвтоЗащита Вариант А','2019-08-01',  '2020-09-02')
+insert into #Table3 values  (316,'Каско А юридических лиц','2019-07-03', '2020-09-02')
+insert into #Table3 values  (302,'Защита от ДТП - ФЛ','2019-07-05', '2020-09-02')
+insert into #Table3 values  (303,'Ничего лишнего','2019-08-04',  '2020-09-02')
+
+/* Проверка корректности добавления данных в таблицу*/
+select * from 
+#Table1, #Table2, #Table3
+
+/* Выполнение запрос*/
+select 
+t1.calculationDate as 'дата расчета',
+t2.printdate as 'дата печати',
+t1.contractId as 'номер договора',
+t3.ProductName as 'имя продукта',
+t3..productid as 'Идентификатор продукта',
+t2.IsDraft,
+t3.datestart,
+t3.dateend
+from #Table3 pr, #Table1 t1
+join #Table2 t2 on t2.contractId = t1.contractId
+join #Table3 t3 on t1.productId = t3.productid
+
+where 
+printdate > '2019-07-01'
+and printdate < '2019-10-01'
+and t1.calculationDate != t2.printdate
+and t3.DateStart < t3.DateEnd
+
+/* Удалание временных таблиц*/
+IF OBJECT_ID('tempdb..#Prod') IS NOT NULL
+BEGIN
+    DROP TABLE #Prod
+END
