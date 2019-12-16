@@ -1,0 +1,37 @@
+class Galaktiki():
+    def __init__(self, razmer, chislo_planet, prigodnost_dlya_zhizni):
+        self.razmer = razmer
+        self.chislo_planet = chislo_planet
+        self.prigodnost_dlya_zhizni = prigodnost_dlya_zhizni
+        #print("Описание характиристик галлактик:")
+
+    def Planeta1(self):
+        print("Описание характиристик галлактик 1:")
+        print(self.razmer + (str +'8989234'))
+        #print("Характиристики измерения: Размер 8989234, число планет 9, уровень кислорода: 20%, пригодность для жизни 0.5 нитрон")
+        
+    def Planeta2(self):
+        print("Описание характиристик галлактик 2:")
+        print("Характиристики измерения: Размер 784575, число планет 5, уровень кислорода: 15%, пригодность для жизни 0.8 нитрон")
+
+    def Planeta3(self):
+        print("Описание характиристик галлактик 3:")
+        print("Характиристики измерения: Размер 868776, число планет 20, уровень кислорода: 0,8%, пригодность для жизни 0.1 нитрон")
+
+    def Planeta4(self):
+        print("Описание характиристик галлактик 3:")
+        print("Характиристики измерения: Размер 785656, число планет 3, уровень кислорода: 67%, пригодность для жизни 1.0 нитрон")
+
+
+        
+Planeta1 = Galaktiki(8989234, 9, "2.0%")
+Planeta1.Planeta1()
+
+Planeta2 = Galaktiki(784575, 5, "1.5%")
+Planeta2.Planeta2()
+
+Planeta3 = Galaktiki(868776, 20, "0.8%")
+Planeta3.Planeta3()
+
+Planeta4 = Galaktiki(785656, 3, "67%")
+Planeta4.Planeta4()
