@@ -1,0 +1,34 @@
+# Создение класса Galaxy
+class Galaxy:
+    # Назначаем статичные переменные
+    jupiter = "Юпитер"
+    uranium = "Уран"
+    earth = "Земля"
+    
+    def property_jupiter(self):
+        self.mass = "Масса:", 1, 8986 * 10 ^ 27
+        self.pl = "Площадь:", 1, 43128 * 10 ^ 15
+        self.ob = "Объект:", 6, 21796 * 10 ^ 10
+
+    def property_uran(self):
+        self.mass = "Macca:", 8, 6813 * 10 ^ 25
+        self.pl = "Площадь:", 8, 11556 * 10 ^ 9
+        self.ob = "Объем:", 6, 833 * 10 ^ 13
+
+    def property_earth(self):
+        self.mass = "Масса:", 5, 9726 * 10 ^ 24
+        self.pl = "Объем:", 10, 8321 * 10 ^ 11
+        self.ob = "Площадь:", 5, 5153 * 3 ^ 3
+
+
+galaxy = Galaxy()
+galaxy.property_jupiter()
+galaxy.property_uran()
+galaxy.property_earth()
+g = input("Введите планету: ")
+if g == galaxy.jupiter:
+    print(galaxy.mass, galaxy.pl, galaxy.ob)
+if g == galaxy.uranium:
+    print(galaxy.mass, galaxy.ob, galaxy.pl)
+elif g == galaxy.earth:
+    print(galaxy.mass, galaxy.ob, galaxy.pl)
