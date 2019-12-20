@@ -1,34 +1,40 @@
 # Создение класса Galaxy
-class Galaxy:
-    # Назначаем статичные переменные
-    jupiter = "Юпитер"
-    uranium = "Уран"
-    earth = "Земля"
-    
-    def property_jupiter(self):
-        self.mass = "Масса:", 1, 8986 * 10 ^ 27
-        self.pl = "Площадь:", 1, 43128 * 10 ^ 15
-        self.ob = "Объект:", 6, 21796 * 10 ^ 10
-
-    def property_uran(self):
-        self.mass = "Macca:", 8, 6813 * 10 ^ 25
-        self.pl = "Площадь:", 8, 11556 * 10 ^ 9
-        self.ob = "Объем:", 6, 833 * 10 ^ 13
-
-    def property_earth(self):
-        self.mass = "Масса:", 5, 9726 * 10 ^ 24
-        self.pl = "Объем:", 10, 8321 * 10 ^ 11
-        self.ob = "Площадь:", 5, 5153 * 3 ^ 3
 
 
-galaxy = Galaxy()
-galaxy.property_jupiter()
-galaxy.property_uran()
-galaxy.property_earth()
-g = input("Введите планету: ")
-if g == galaxy.jupiter:
-    print(galaxy.mass, galaxy.pl, galaxy.ob)
-if g == galaxy.uranium:
-    print(galaxy.mass, galaxy.ob, galaxy.pl)
-elif g == galaxy.earth:
-    print(galaxy.mass, galaxy.ob, galaxy.pl)
+class Planet:
+    # Атрибуты экземпляра
+    def __init__(self, jupiter, mars, uranium, earth):
+        self.jupiter = jupiter
+        self.mars = mars
+        self.uranium = uranium
+        self.earth = earth
+
+    # Методы экземпляра
+    """Параметры планеты Юпитер"""
+    def parametr_jupiter(self, jupiter_volume, jupiter_radius, jupiter_mass):
+        jupiter_param = self.jupiter
+    """Параметры планеты Уран"""
+    def parametr_uran(self, jupiter_volume, uranium_mass, uranium_radius):
+        uranium_param = self.uranium
+    """Парамеры планеты Марс"""
+    def parametr_mars(self, mars_volume, mars_mass, mars_radius):
+        mars_param = self.mars
+    """Параметры планеты земля"""
+    def parametr_earth(self, earth_volume, earth_mass, earth_radius):
+        earth_param = self.earth
+
+
+planeta = Planet
+planeta.jupiter = "Юпитер"
+planeta.mars = "Марс"
+planeta.uranium = "Уран"
+planeta.earth = "Земля"
+planeta.jupiter_param = 1, 8986 * 10 ^ 27, 1, 43128 * 10 ^ 15, 6, 21796 * 10 ^ 10
+planeta.uranium_param = 8, 6813 * 10 ^ 25, 8, 11556 * 10 ^ 9, 6, 833 * 10 ^ 13
+planeta.earth_param = 5, 9726 * 10 ^ 24, 10, 8321 * 10 ^ 11, 5, 5153 * 3 ^ 3
+print( planeta.jupiter,
+      planeta.jupiter_param,
+      planeta.uranium,
+      planeta.uranium_param,
+      planeta.earth,
+      planeta.earth_param )
