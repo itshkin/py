@@ -11,15 +11,22 @@ class Planet:
 
     # Методы экземпляра
     """Параметры планеты Юпитер"""
+
     def parametr_jupiter(self, jupiter_volume, jupiter_radius, jupiter_mass):
         jupiter_param = self.jupiter
+
     """Параметры планеты Уран"""
+
     def parametr_uran(self, jupiter_volume, uranium_mass, uranium_radius):
         uranium_param = self.uranium
+
     """Парамеры планеты Марс"""
+
     def parametr_mars(self, mars_volume, mars_mass, mars_radius):
         mars_param = self.mars
+
     """Параметры планеты земля"""
+
     def parametr_earth(self, earth_volume, earth_mass, earth_radius):
         earth_param = self.earth
 
@@ -29,12 +36,13 @@ planeta.jupiter = "Юпитер"
 planeta.mars = "Марс"
 planeta.uranium = "Уран"
 planeta.earth = "Земля"
-planeta.jupiter_param = 1, 8986 * 10 ^ 27, 1, 43128 * 10 ^ 15, 6, 21796 * 10 ^ 10
-planeta.uranium_param = 8, 6813 * 10 ^ 25, 8, 11556 * 10 ^ 9, 6, 833 * 10 ^ 13
-planeta.earth_param = 5, 9726 * 10 ^ 24, 10, 8321 * 10 ^ 11, 5, 5153 * 3 ^ 3
-print( planeta.jupiter,
+planeta.jupiter_param = "Объем:", 1, 8986 * 10 ^ 27, "Масса:", 1, 43128 * 10 ^ 15, "Радиус:", 6, 21796 * 10 ^ 10
+planeta.uranium_param = "Объем:", 8, 6813 * 10 ^ 25, "Масса:", 8, 11556 * 10 ^ 9, "Радиус:", 6, 833 * 10 ^ 13
+planeta.earth_param = "Объем:", 5, 9726 * 10 ^ 24, "Масса:", 10, 8321 * 10 ^ 11, "Радиус:", 5, 5153 * 3 ^ 3
+planeta.parametr_mars = "Объем:", 5, 9726 * 10 ^ 24, "Масса:", 10, 8321 * 10 ^ 11, "Радиус:", 5, 5153 * 3 ^ 3
+print(planeta.jupiter,
       planeta.jupiter_param,
       planeta.uranium,
       planeta.uranium_param,
       planeta.earth,
-      planeta.earth_param )
+      planeta.earth_param)
