@@ -1,0 +1,27 @@
+class zoo:
+  '''Методы передаваемые в класс zoo'''
+    def __init__(self, view, group, sreda_obitaniya):
+        self.view = view  # Вид
+        self.group = group  # Класс
+        self.sreda_obitaniya = sreda_obitaniya  # Среда обитания
+    
+    '''Методы передаваемые в класс zoo'''
+    def parametr(self, spisok_view,
+                 spisok_group,
+                 spisok_sreda_obitaniya):
+        return spisok_sreda_obitaniya, spisok_group, spisok_view
+
+
+z = zoo('Вид животных:', '\nКласс животных:', '\nСреда обитания:')
+par = input('Введите имя животного: ')
+tigr = z.parametr('Тигр', 'Хищник', 'Саванна')
+if par == tigr[2]:
+    print(z.view + str(tigr[2]),
+          z.group + str(tigr[1]),
+          z.sreda_obitaniya + str(tigr[0]))
+
+ziraf = z.parametr('Жираф', 'Травоядные', 'Саванна')
+if par == ziraf[2]:
+    print(z.view + str(ziraf[2]),
+          z.group + str(ziraf[1]),
+          z.sreda_obitaniya + str(ziraf[0]))
